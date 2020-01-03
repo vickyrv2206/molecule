@@ -1,0 +1,5 @@
+---
+# tasks file for role-test
+- name: print ansible distribution
+  debug:
+    msg: ansible distribution:-{{ ansible_distribution }}

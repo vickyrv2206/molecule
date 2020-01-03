@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+  options:
+    managed: false
+    login_cmd_template: 'ssh {instance} -F /tmp/ssh-config'
+    ansible_connection_options:
+      connection: ssh
+      ansible_ssh_common_args: -F /tmp/ssh-config
+lint:
+  name: yamllint
+platforms:
+  - name: my-delegated-host
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  additional_files_or_dirs:
+    - ../tests/sample.py
+  lint:
+    name: flake8

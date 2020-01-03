@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars_files:
+    - ./../vars/php.yml
+  roles:
+    - package_install

@@ -1,0 +1,12 @@
+---
+# tasks file for package_install
+- name: print ansible distribution
+  debug:
+    msg: ansible distribution:-{{ ansible_distribution }}
+
+# - name: install package
+#   yum:
+#     name: '{{ item }}'
+#     state: present
+#   with_items:
+#     - "{{ package }}"

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  vars_files:
+    - ./../vars/httpd.yml
+  roles:
+    - package_install

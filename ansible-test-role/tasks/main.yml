@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-test-role
+- name: print ansible distribution
+  debug:
+    msg: ansible distribution:-{{ ansible_distribution }}
+
+- name: install php
+  win_chocolatey:
+    name: php
+    state: present
+
+- name: check a file (check mode)
+  win_file:
+    path: C:\Users\Public\Pictures\sample_for_testing
+    state: directory
+
+# - name: "Creating user - linux"
+#   user:
+#     name: "viki"
+#     state: "present"
+#     shell: "/bin/bash"
+#     create_home: yes
+#     # password: "viki"

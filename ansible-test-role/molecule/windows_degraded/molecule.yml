@@ -1,0 +1,35 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: delegated
+  options:
+    managed: false
+    ansible_connection_options:
+      connection: winrm
+lint:
+  name: yamllint
+platforms:
+  - name: windows
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      windows:
+        ansible_become: trtue
+        ansible_user:  Administrator
+        ansible_password: Kh9omsgULtG
+        ansible_port: 5985
+        ansible_host: 18.207.168.35
+        ansible_connection: winrm
+        ansible_winrm_scheme: http
+        ansible_winrm_server_cert_validation: ignore
+    group_vars:
+      linux:
+        ansible_become: true
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
